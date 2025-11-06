@@ -29,6 +29,11 @@ const App = () => {
     setTasks(sortedTasks);
   };
 
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="bg-[#3F72AF] min-h-screen flex justify-center items-start py-10 px-4">
       <div className="w-full sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white rounded-md shadow-md p-5">
@@ -44,6 +49,7 @@ const App = () => {
               task={task.text}
               completed={task.completed}
               onToggle={() => toggleTask(index)}
+              onDelete={() => deleteTask(index)}
             />
           ))}
         </div>
